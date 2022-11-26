@@ -1,0 +1,204 @@
+<app-header></app-header>
+<script>
+  function myFunction() {
+    var input, filter, div, h3, a, i, txtValue;
+    input = document.getElementById("myInput");
+    filter = input.value.toUpperCase();
+    div = document.getElementById("myUL");
+    h3 = div.getElementsByTagName("h3");
+    for (i = 0; i < h3.length; i++) {
+      a = h3[i].getElementsByTagName("a")[0];
+      txtValue = a.textContent || a.innerText;
+      if (txtValue.toUpperCase().indexOf(filter) > -1) {
+        h3[i].style.display = "";
+      } else {
+        h3[i].style.display = "none";
+      }
+    }
+  }
+</script>
+<!-- =-=-=-=-=-=-= HOME =-=-=-=-=-=-= -->
+<div class="full-section search-section">
+  <div class="search-area container">
+    <h3 class="search-title">Have a Question?</h3>
+    <p class="search-tag-line">If you have any question you can ask below or enter what you are looking for!</p>
+    <form autocomplete="off" method="get" class="search-form clearfix" id="search-form">
+      <input type="text" title="* Please enter a search term!" onkeyup="myFunction()" id="myInput" placeholder="Type your search terms here" class="search-term " autocomplete="off">
+      <input type="submit" value="Search" class="search-btn">
+    </form>
+  </div>
+</div>
+<!-- =-=-=-=-=-=-= HOME END =-=-=-=-=-=-= -->
+<!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+<div class="main-content-area">
+
+
+  <!-- =-=-=-=-=-=-= Blog & News =-=-=-=-=-=-= -->
+  <section id="blog" class="custom-padding">
+    <div class="container">
+      <!-- title-section -->
+      <div class="main-heading text-center">
+        <h2>Post Advertisement</h2>
+        <div class="slices"><span class="slice"></span><span class="slice"></span><span class="slice"></span>
+        </div>
+        <p>Cras varius purus in tempus porttitor ut dapibus efficitur sagittis cras vitae lacus metus nunc vulputate facilisis nisi
+          <br>eu lobortis erat consequat ut. Aliquam et justo ante. Nam a cursus velit</p>
+      </div>
+      <!-- End title-section -->
+      <!-- Row -->
+      <div class="row">
+        <!-- Blog Grid -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img alt="blog-image1" class="img-responsive" src="/images/blog/1.jpg">
+            </div>
+            <div class="blog-content">
+              <h5><a href="#">Why use our website?</a></h5>
+              <ul class="post-meta">
+                <li>By Admin</li>
+                <li>Php</li>
+                <li>12 Nov 2022</li>
+              </ul>
+              <p>Not only used products, this website will have monthly articles about how to sell your used products more effectively, how to protect your used products, and other articles related to this industry</p>
+            </div>
+            <div class="blog-footer">
+              <ul class="like-comment">
+                <li><a href="#"><i class="icon-heart"></i>23</a>
+                </li>
+                <li><a href="#"><i class="icon-chat"></i>32</a>
+                </li>
+              </ul> <a href="#" class="more-btn pull-right"><i class="fa fa-long-arrow-right"></i> MORE</a>
+            </div>
+          </div>
+        </div>
+        <!-- Blog Grid -->
+        <!-- Blog Grid -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img alt="blog-image1" class="img-responsive" src="/images/blog/2.jpg">
+            </div>
+            <div class="blog-content">
+              <h5><a href="#">How compatible is the website with different browsers?</a></h5>
+              <ul class="post-meta">
+                <li>By Admin</li>
+                <li>HTML</li>
+                <li>12 Nov 2022</li>
+              </ul>
+              <p>This website can be accessed from any browser!.</p>
+            </div>
+            <div class="blog-footer">
+              <ul class="like-comment">
+                <li><a href="#"><i class="icon-heart"></i>23</a>
+                </li>
+                <li><a href="#"><i class="icon-chat"></i>32</a>
+                </li>
+              </ul> <a href="#" class="more-btn pull-right"><i class="fa fa-long-arrow-right"></i> MORE</a>
+            </div>
+          </div>
+        </div>
+        <!-- Blog Grid -->
+        <!-- Blog Grid -->
+        <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
+          <div class="blog-grid">
+            <div class="blog-image">
+              <img alt="blog-image1" class="img-responsive" src="/images/blog/3.jpg">
+            </div>
+            <div class="blog-content">
+              <h5><a href="#"> How to use the smart search option on the website? </a></h5>
+              <ul class="post-meta">
+                <li>By Admin</li>
+                <li>HTML</li>
+                <li>12 Nov 2022</li>
+              </ul>
+              <p>Search based on keyword. Our smart search will find posts that have that keyword in them</p>
+            </div>
+            <div class="blog-footer">
+              <ul class="like-comment">
+                <li><a href="#"><i class="icon-heart"></i>23</a>
+                </li>
+                <li><a href="#"><i class="icon-chat"></i>32</a>
+                </li>
+              </ul> <a href="#" class="more-btn pull-right"><i class="fa fa-long-arrow-right"></i> MORE</a>
+            </div>
+          </div>
+        </div>
+        <!-- Blog Grid -->
+        <div class="clearfix"></div>
+        <div class="text-center clearfix section-padding-40"> <a href="products/view-posts" class="btn btn-lg btn-primary">View all Post</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <div class="row">
+        <!-- Blog Grid -->
+
+					<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4" *ngFor="let post of featuredPostLists; index as i">
+						<div class="blog-grid">
+							<div class="blog-image">
+								<h2>{{post.title}}</h2>
+							</div>
+							<div class="blog-content">
+								<h5><a href="blog-detail.html">Price: ${{post.price}}</a></h5>
+
+								<p>We can make table scrollable by adding table-responsive class to it, but how can we loop it so that once the loop ends..</p>
+							</div>
+							<div class="blog-footer">
+								<ul class="like-comment">
+									<li><a href="#"><i class="icon-heart"></i>23</a>
+									</li>
+									<li><a href="#"><i class="icon-chat"></i>32</a>
+									</li>
+								</ul> <a href="#" class="more-btn pull-right"><i class="fa fa-long-arrow-right"></i> MORE</a>
+							</div>
+						</div>
+					</div>
+					<!-- Blog Grid -->
+
+        <!-- Blog Grid -->
+        <div class="clearfix"></div>
+        <div class="text-center clearfix section-padding-40"> <a href="products/view-posts" class="btn btn-lg btn-primary">View all Post</a>
+        </div>
+        <div class="clearfix"></div>
+      </div>
+      <!-- Row End -->
+    </div>
+    <!-- end container -->
+  </section>
+
+</div>
+<!-- =-=-=-=-=-=-= Main Area End =-=-=-=-=-=-= -->
+<section id="social-media">
+  <div class="block no-padding">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="social-bar">
+          <ul>
+            <li class="social1">
+              <a title="" href="#">
+                <img alt="" src="/images/facebook.png"> <span>Join Us On<strong>FACEBOOK</strong></span>
+              </a>
+            </li>
+            <li class="social2">
+              <a title="" href="#">
+                <img alt="" src="/images/twitter.png"> <span>Join Us On<strong>TWIITER</strong></span>
+              </a>
+            </li>
+            <li class="social3">
+              <a title="" href="#">
+                <img alt="" src="/images/google-plus.png"> <span>Join Us On<strong>GOOGLE PLUS</strong></span>
+              </a>
+            </li>
+            <li class="social4">
+              <a title="" href="#">
+                <img alt="" src="/images/linkedin.png"> <span>Join Us On<strong>LINKED IN</strong></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+<app-footer></app-footer>

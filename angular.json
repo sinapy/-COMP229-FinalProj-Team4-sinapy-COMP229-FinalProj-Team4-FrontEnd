@@ -27,9 +27,26 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "./node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "./node_modules/animate.css/animate.min.css",
+              "./node_modules/et-line/style.css",
+              "./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
+              "./node_modules/owl.carousel/src/scss/owl.theme.green.scss",
+              "./node_modules/select2/dist/css/select2.css"
+
+
+
+
             ],
-            "scripts": []
+            "scripts": [
+
+              "./node_modules/jquery/dist/jquery.slim.js",
+              "./node_modules/popper.js/dist/popper.js",
+              "./node_modules/jquery/dist/jquery.min.js",
+              "./node_modules/bootstrap/dist/js/bootstrap.min.js"
+
+
+            ]
           },
           "configurations": {
             "production": {
