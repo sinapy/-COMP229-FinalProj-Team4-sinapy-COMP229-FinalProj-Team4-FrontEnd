@@ -10,11 +10,19 @@ import { NotfoundComponent } from './pages/notfound/notfound.component';
 import { ForgotPasswordComponent } from './pages/forgot-password/forgot-password.component';
 import { HowWorkComponent } from './pages/how-work/how-work.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
+import { LoginComponent } from './pages/login/login.component';
+import { CreatePostComponent } from './pages/post/create-post/create-post.component';
+import { DetailsComponent } from './pages/post/details/details.component';
+import { ViewPostsComponent } from './pages/post/view-posts/view-posts.component';
 
 const routes: Routes = [
-  {path: 'register', component: RegisterComponent}
+  {path: '', component: LandingPageComponent},
+  {path: 'register', component: RegisterComponent},
+  {path: 'login', component: LoginComponent},
+  {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'how-work', component: HowWorkComponent},
 
-  // { path: '**', component: PageNotFoundComponent },  // Wildcard route for a 404 page
+  {path: '**', component: NotfoundComponent },  // Wildcard route for a 404 page
 ];
 
 @NgModule({
@@ -26,7 +34,11 @@ const routes: Routes = [
     NotfoundComponent,
     ForgotPasswordComponent,
     HowWorkComponent,
-    LandingPageComponent
+    LandingPageComponent,
+    LoginComponent,
+    CreatePostComponent,
+    DetailsComponent,
+    ViewPostsComponent
   ],
   imports: [
     BrowserModule,
