@@ -23,6 +23,7 @@
     "animate.css": "^4.1.1",
     "bootstrap": "^5.2.3",
     "bootstrap-dropdown-hover": "^4.2.0",
+    "core-js": "^3.26.1",
     "et-line": "^1.0.1",
     "jquery": "^3.6.1",
     "owl.carousel": "^2.3.4",
