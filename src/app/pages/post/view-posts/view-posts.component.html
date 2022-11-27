@@ -1,0 +1,95 @@
+<app-header></app-header>
+<!-- HEADER Navigation End -->
+
+<!-- =-=-=-=-=-=-= Main Area =-=-=-=-=-=-= -->
+<div class="main-content-area">
+
+  <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+  <section class="page-title">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+          <h1>View Posts</h1>
+        </div>
+        <!-- end col -->
+        <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+          <div class="bread">
+            <ol class="breadcrumb">
+              <li><a href="#">Home</a>
+              </li>
+              <li><a href="#">Pages</a>
+              </li>
+              <li class="active">View Posts</li>
+            </ol>
+          </div>
+          <!-- end bread -->
+        </div>
+        <!-- end col -->
+      </div>
+      <!-- end row -->
+    </div>
+    <!-- end container -->
+  </section>
+
+  <!-- =-=-=-=-=-=-= Page Breadcrumb End =-=-=-=-=-=-= -->
+
+  <!-- =-=-=-=-=-=-= Blog & News =-=-=-=-=-=-= -->
+  <section id="blog" class="custom-padding white">
+    <div class="container">
+      <div class="table-responsive">
+        <table class="table table-bordered table-striped table-hover">
+          <!-- Header Row-->
+          <tr>
+            <th class="text-center">Title</th>
+            <th class="text-center">Price</th>
+            <th class="text-center" colspan="3">Actions</th>
+          </tr>
+
+          <!-- Repeatable Template Row -->
+
+          <tr *ngFor="let post of postsList; index as i">
+            <td class="text-center">{{ postsList[i].title }}</td>
+            <td class="text-center">${{ postsList[i].price }}</td>
+            <td class="text-center">{{ postsList[i].status }}</td>
+            <td class="text-center">{{ postsList[i].expires_on }}</td>
+            <td class="text-center">
+              <a [href]="'/products/details/'+postsList[i]._id" class="btn btn-success btn-sm">
+                <i class="fa fa-info"></i> </a>
+            </td>
+            <td class="text-center">
+              <!-- ------------------------- -->
+              <!-- Fix the EDIT button below -->
+              <!-- ------------------------- -->
+              <a [href]="'/products/edit/'+postsList[i]._id" class="btn btn-primary btn-sm">
+                <i class="fa fa-pencil"></i></a>
+            </td>
+            <td class="text-center">
+              <!-- --------------------------- -->
+              <!-- Fix the DELETE button below -->
+              <!-- --------------------------- -->
+              <a [href]="'/products/delete/'+postsList[i]._id" class="btn btn-danger btn-sm">
+                <i class="fa fa-trash"></i></a>
+
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <!-- end container -->
+  </section>
+  <!-- =-=-=-=-=-=-= Blog & News end =-=-=-=-=-=-= -->
+
+
+  <!-- =-=-=-=-=-=-= Download App =-=-=-=-=-=-= -->
+
+  <!-- =-=-=-=-=-=-= Download App END =-=-=-=-=-=-= -->
+
+  <!-- =-=-=-=-=-=-= Our Clients =-=-=-=-=-=-= -->
+
+  <!-- =-=-=-=-=-=-= Our Clients -end =-=-=-=-=-=-= -->
+
+</div>
+<!-- =-=-=-=-=-=-= Main Area End =-=-=-=-=-=-= -->
+
+<!-- =-=-=-=-=-=-= FOOTER =-=-=-=-=-=-= -->
+<app-footer></app-footer>
