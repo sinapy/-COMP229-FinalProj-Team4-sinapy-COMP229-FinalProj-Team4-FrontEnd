@@ -6,7 +6,16 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-posts.component.css']
 })
 export class ViewPostsComponent implements OnInit {
-  postsList: any;
+  postsList = [
+    {
+      _id : 10,
+      title : 'hello',
+      price : 99,
+      expires_on : Date.now() + Date.now(),
+      status: 'ENABLED'
+
+    }
+  ];
 
   constructor() { }
 

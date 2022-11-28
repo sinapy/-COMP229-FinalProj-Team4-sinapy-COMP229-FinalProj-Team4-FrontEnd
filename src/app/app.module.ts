@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule} from "@angular/common/http";
 
 import { AppComponent } from './app.component';
 import { FooterComponent } from "./components/partials/footer/footer.component";
@@ -14,12 +15,21 @@ import { LoginComponent } from './pages/login/login.component';
 import { CreatePostComponent } from './pages/post/create-post/create-post.component';
 import { DetailsComponent } from './pages/post/details/details.component';
 import { ViewPostsComponent } from './pages/post/view-posts/view-posts.component';
+import {FormsModule} from "@angular/forms";
+import { ProfileComponent } from './pages/profile/profile.component';
+
+export function tokenGetter() {
+  return localStorage.getItem('access_token');
+}
 
 const routes: Routes = [
   {path: '', component: LandingPageComponent},
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
+  {path: 'products/create-post', component: CreatePostComponent},
+  {path: 'products/details/:id', component: DetailsComponent},
+  {path: 'products/view-posts', component: ViewPostsComponent},
   {path: 'how-work', component: HowWorkComponent},
 
   {path: '**', component: NotfoundComponent },  // Wildcard route for a 404 page
@@ -38,11 +48,14 @@ const routes: Routes = [
     LoginComponent,
     CreatePostComponent,
     DetailsComponent,
-    ViewPostsComponent
+    ViewPostsComponent,
+    ProfileComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     RouterModule.forRoot(routes),
+    FormsModule
 
   ],
   exports: [RouterModule],

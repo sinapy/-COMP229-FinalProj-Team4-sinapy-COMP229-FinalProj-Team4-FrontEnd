@@ -50,14 +50,42 @@
             </p> -->
 
             <!-- form login -->
-            <form action="/loginprosee"  method="post">
+            <form
+              *ngIf="!isLoggedIn"
+              name="form"
+              (ngSubmit)="f.form.valid && onSubmit()"
+              #f="ngForm"
+              novalidate
+            >
               <div class="form-group">
                 <label>Email</label>
-                <input type="email" name="User_email"placeholder="Your Email" class="form-control" required>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Your Email"
+                  class="form-control"
+                  [(ngModel)]="form.email"
+                  #email="ngModel"
+                  required>
+              </div>
+              <div
+                class="alert alert-danger"
+                role="alert"
+                *ngIf="f.submitted && email.invalid"
+              >
+                Email is required
+
               </div>
               <div class="form-group">
                 <label>Password</label>
-                <input type="password" name="User_password" placeholder="Your Password" class="form-control" required>
+                <input
+                  type="password"
+                  name="password"
+                  placeholder="Your Password"
+                  class="form-control"
+                  [(ngModel)]="form.password"
+                  #password="ngModel"
+                  required>
               </div>
               <div class="form-group">
                 <div class="row">
@@ -69,6 +97,17 @@
                       </label>
                     </div>
                   </div>
+                  <div
+                    class="alert alert-danger"
+                    role="alert"
+                    *ngIf="f.submitted && password.invalid"
+                  >
+                    Password must be at least 6 characters
+                  </div>
+<!--                  <div *ngIf="password.errors['required']">Password is required</div>-->
+<!--                  <div *ngIf="password.errors['minlength']">-->
+<!--                    Password must be at least 6 characters-->
+<!--                  </div>-->
                   <div class="col-xs-6 text-right">
                     <p class="help-block"><a data-toggle="modal" href="/forgot_password" >Forgot password?</a>
                     </p>
@@ -76,9 +115,25 @@
                 </div>
               </div>
 
-              <button class="btn btn-primary btn-lg btn-block" type="submit">Log In</button>
+              <div class="form-group">
+                <button class="btn btn-primary btn-lg btn-block">Log In</button>
+              </div>
+              <div class="form-group">
+                <div
+                  class="alert-danger alert"
+                  role="alert"
+                  *ngIf="f.submitted && isLoginFailed"
+                  >
+                  Login failed: {{errorMessage}}
+                </div>
+              </div>
+
 
             </form>
+
+            <div class="alert alert-success" *ngIf="isLoggedIn">
+              Logged in as {{roles}}
+            </div>
             <!-- form login -->
 
           </div>

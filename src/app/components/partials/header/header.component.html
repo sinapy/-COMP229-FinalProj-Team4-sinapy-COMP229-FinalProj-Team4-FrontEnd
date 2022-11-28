@@ -17,12 +17,20 @@
         </ul>
       </div>
       <div class="col-lg-4 col-md-4 col-sm-6 col-xs-4">
-        <ul class="top-nav nav-right">
+        <ul class="top-nav nav-right" *ngIf="!isLoggedIn">
           <li><a routerLink="/login"><i class="fa fa-lock" aria-hidden="true"></i>Login</a>
           </li>
           <li><a routerLink="/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
           </li>
 
+        </ul>
+        <ul class="top-nav nav-right" *ngIf="isLoggedIn">
+          <li class="nav-item">
+            <a routerLink="/profile" class="nav-link" href="/profile">{{username}}</a>
+          </li>
+          <li class="nav-item">
+            <a href class="nav-link" (click)="logout()">LogOut</a>
+          </li>
         </ul>
       </div>
     </div>
@@ -51,7 +59,7 @@
         <li class="hidden-sm"><a routerLink="/how-work">How  It Works</a>
         </li>
         <li>
-          <div class="btn-nav"><a href="/products/create-post" class="btn btn-primary btn-small navbar-btn">Post</a>
+          <div class="btn-nav"><a routerLink="/products/create-post" class="btn btn-primary btn-small navbar-btn">Post</a>
           </div>
         </li>
       </ul>
