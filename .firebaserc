@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "wldg-370315"
+  },
+  "targets": {
+    "wldg-370315": {
+      "hosting": {
+        "COMP229-FinaProject-Team4-FrontEnd": [
+          "wldg-370315"
+        ]
+      }
+    }
+  }
+}

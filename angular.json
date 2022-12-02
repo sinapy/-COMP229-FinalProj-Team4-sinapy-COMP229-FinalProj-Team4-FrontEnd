@@ -33,19 +33,12 @@
               "./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
               "./node_modules/owl.carousel/src/scss/owl.theme.green.scss",
               "./node_modules/select2/dist/css/select2.css"
-
-
-
-
             ],
             "scripts": [
-
               "./node_modules/jquery/dist/jquery.slim.js",
               "./node_modules/popper.js/dist/popper.js",
               "./node_modules/jquery/dist/jquery.min.js",
               "./node_modules/bootstrap/dist/js/bootstrap.min.js"
-
-
             ]
           },
           "configurations": {
@@ -114,6 +107,16 @@
               "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "COMP229-FinaProject-Team4-FrontEnd:build:production",
+            "firebaseProject": "wldg-370315",
+            "firebaseHostingSite": "wldg-370315"
           }
         }
       }
