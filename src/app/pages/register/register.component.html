@@ -120,7 +120,12 @@
 
             </form>
             <!-- form login -->
-
+            <div *ngIf="isSignUpFailed">
+              sign up failed
+            </div>
+            <div *ngIf="isSuccessful">
+              Sign up successful
+            </div>
           </div>
         </div>
 
