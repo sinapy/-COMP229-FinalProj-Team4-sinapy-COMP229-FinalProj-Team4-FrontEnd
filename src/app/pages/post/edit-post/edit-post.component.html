@@ -9,7 +9,7 @@
     <div class="container">
       <div class="row">
         <div class="col-md-6 col-sm-7 co-xs-12 text-left">
-          <h4>Create Post</h4>
+          <h4>Edit Post</h4>
         </div>
         <!-- end col -->
         <div class="col-md-6 col-sm-5 co-xs-12 text-right">
@@ -19,7 +19,7 @@
               </li>
               <li><a href="#">Pages</a>
               </li>
-              <li class="active">Create Post</li>
+              <li class="active">Edit Post</li>
             </ol>
           </div>
           <!-- end bread -->
@@ -99,8 +99,8 @@
 
           </div>
           <div *ngIf="submitted">
-            <h4>Post was submitted successfully!</h4>
-            <button class="btn btn-success" (click)="newPost()">Add More</button>
+            <h4>Post was updated successfully!</h4>
+            <button class="btn btn-success" [routerLink]="['/products/view-posts']">View Posts</button>
           </div>
         </div>
       </div>
