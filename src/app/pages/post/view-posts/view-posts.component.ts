@@ -54,4 +54,13 @@ export class ViewPostsComponent implements OnInit {
     this.currentIndex = index;
   }
 
+  deletePost(_id: any) {
+    this.postService.delete(_id)
+      .subscribe({
+        next: (data) => {
+          this.refreshList();
+    }
+      })
+
+  }
 }

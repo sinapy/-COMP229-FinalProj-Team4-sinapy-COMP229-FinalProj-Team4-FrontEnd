@@ -69,7 +69,7 @@
               <!-- --------------------------- -->
               <!-- Fix the DELETE button below -->
               <!-- --------------------------- -->
-              <a [routerLink]="['/products/delete/', post._id]" class="btn btn-danger btn-sm">
+              <a (click)="deletePost(post._id)" class="btn btn-danger btn-sm">
                 <i class="fa fa-trash"></i></a>
 
             </td>
