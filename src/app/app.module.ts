@@ -13,6 +13,7 @@ import { HowWorkComponent } from './pages/how-work/how-work.component';
 import { LandingPageComponent } from './pages/landing-page/landing-page.component';
 import { LoginComponent } from './pages/login/login.component';
 import { CreatePostComponent } from './pages/post/create-post/create-post.component';
+import { EditPostComponent } from './pages/post/edit-post/edit-post.component';
 import { DetailsComponent } from './pages/post/details/details.component';
 import { ViewPostsComponent } from './pages/post/view-posts/view-posts.component';
 import {FormsModule} from "@angular/forms";
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
   {path: 'products/create-post', component: CreatePostComponent},
+  {path: 'products/edit-post/:id', component: EditPostComponent},
   {path: 'products/details/:id', component: DetailsComponent},
   {path: 'products/view-posts', component: ViewPostsComponent},
   {path: 'how-work', component: HowWorkComponent},
@@ -47,6 +49,7 @@ const routes: Routes = [
     LandingPageComponent,
     LoginComponent,
     CreatePostComponent,
+    EditPostComponent,
     DetailsComponent,
     ViewPostsComponent,
     ProfileComponent

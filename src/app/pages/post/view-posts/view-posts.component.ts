@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Post } from 'src/app/models/post.model';
+import { PostService } from 'src/app/_service/post.service';
+import {format} from "date-fns"
 
 @Component({
   selector: 'app-view-posts',
@@ -6,20 +9,46 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./view-posts.component.css']
 })
 export class ViewPostsComponent implements OnInit {
-  postsList = [
-    {
-      _id : 10,
-      title : 'hello',
-      price : 99,
-      expires_on : Date.now() + Date.now(),
-      status: 'ENABLED'
 
-    }
-  ];
+  posts?: Post[];
+  currentPost: Post = {};
+  currentIndex = -1;
+  
 
-  constructor() { }
+  constructor(private postService: PostService) { }
 
+  
   ngOnInit(): void {
+    this.retrievePosts();
+
+  }
+
+  retrievePosts(): void {
+    this.postService.getAll()
+      .subscribe({
+        next: (data) => {
+          let postsList : Post[] = []
+
+          data.forEach(e => {
+            e.expires_on = format((new Date(e.expires_on || "")),'yyyy-MM-dd')
+            postsList.push(e)
+          })
+          this.posts = postsList;
+          console.log(data);
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
+  refreshList(): void {
+    this.retrievePosts();
+    this.currentPost = {};
+    this.currentIndex = -1;
+  }
+
+  setActivePost(post: Post, index: number): void {
+    this.currentPost = post;
+    this.currentIndex = index;
   }
 
 }

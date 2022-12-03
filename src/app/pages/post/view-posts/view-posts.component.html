@@ -42,32 +42,34 @@
           <tr>
             <th class="text-center">Title</th>
             <th class="text-center">Price</th>
+            <th class="text-center">Status</th>
+            <th class="text-center">Expires On</th>
             <th class="text-center" colspan="3">Actions</th>
           </tr>
 
           <!-- Repeatable Template Row -->
 
-          <tr *ngFor="let post of postsList; index as i">
-            <td class="text-center">{{ postsList[i].title }}</td>
-            <td class="text-center">${{ postsList[i].price }}</td>
-            <td class="text-center">{{ postsList[i].status }}</td>
-            <td class="text-center">{{ postsList[i].expires_on }}</td>
+          <tr *ngFor="let post of posts; index as i">
+            <td class="text-center">{{ post.title }}</td>
+            <td class="text-center">${{ post.price }}</td>
+            <td class="text-center">{{ post.status }}</td>
+            <td class="text-center">{{ post.expires_on }}</td>
             <td class="text-center">
-              <a [href]="'/products/details/'+postsList[i]._id" class="btn btn-success btn-sm">
+              <a [routerLink]="['/products/details/', post._id]" class="btn btn-success btn-sm">
                 <i class="fa fa-info"></i> </a>
             </td>
             <td class="text-center">
               <!-- ------------------------- -->
               <!-- Fix the EDIT button below -->
               <!-- ------------------------- -->
-              <a [href]="'/products/edit/'+postsList[i]._id" class="btn btn-primary btn-sm">
+              <a [routerLink]="['/products/edit-post/', post._id]" class="btn btn-primary btn-sm">
                 <i class="fa fa-pencil"></i></a>
             </td>
             <td class="text-center">
               <!-- --------------------------- -->
               <!-- Fix the DELETE button below -->
               <!-- --------------------------- -->
-              <a [href]="'/products/delete/'+postsList[i]._id" class="btn btn-danger btn-sm">
+              <a [routerLink]="['/products/delete/', post._id]" class="btn btn-danger btn-sm">
                 <i class="fa fa-trash"></i></a>
 
             </td>

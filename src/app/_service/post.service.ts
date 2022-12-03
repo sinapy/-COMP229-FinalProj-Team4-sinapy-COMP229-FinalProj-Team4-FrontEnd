@@ -1,37 +1,34 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Post } from '../models/post.model';
 
+const baseUrl = 'http://localhost:8080/api/posts';
 
-const API_URL = 'https://wldg-backend.nn.r.appspot.com/';
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
+
   constructor(private http: HttpClient) { }
 
-  getAllPosts(): Observable<any> {
-    return this.http.get(API_URL + 'view-posts', {responseType: "text"});
+  getAll(): Observable<Post[]> {
+    return this.http.get<Post[]>(baseUrl);
   }
 
-  getPostById(id: string): Observable<any> {
-    return this.http.get(API_URL + `details/${id}`, {responseType:"text"});
+  get(id: any): Observable<Post> {
+    return this.http.get(`${baseUrl}/${id}`);
   }
 
-  createPost(form: FormData): Observable<any> {
-    return this.http.post(API_URL + 'create-post', form);
+  create(data: any): Observable<any> {
+    return this.http.post(baseUrl, data);
   }
 
-  editPost(form: FormData, id: string): Observable<any> {
-    return this.http.put(API_URL + `edit/${id}`, form);
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
   }
 
-  deletePost(id: string): Observable<any>{
-    return this.http.delete(API_URL + `delete/${id}`)
+  delete(id: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/${id}`);
   }
-
-  getAdminBoard(): Observable<any> {
-    return this.http.get(API_URL + 'admin', {responseType: "text"});
-  }
-
 }
