@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule} from "@angular/common/http";
 
+import { authInterceptorProviders } from "./_helper/auth.interceptor";
+
 import { AppComponent } from './app.component';
 import { FooterComponent } from "./components/partials/footer/footer.component";
 import { HeaderComponent } from './components/partials/header/header.component';
@@ -65,7 +67,7 @@ const routes: Routes = [
 
   ],
   exports: [RouterModule],
-  providers: [],
+  providers: [authInterceptorProviders],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
