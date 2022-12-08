@@ -31,6 +31,7 @@ export class ViewPostsComponent implements OnInit {
           console.log(postsList);
           data.forEach(e => {
             e.expires_on = format((new Date(e.expires_on || "")),'yyyy-MM-dd')
+            e.status = Date.parse(e.expires_on) < Date.now() ? 'DISABLED' : 'ENABLED';
             postsList.push(e)
           })
           console.log("HELLO THIS IS HAPPENING")
