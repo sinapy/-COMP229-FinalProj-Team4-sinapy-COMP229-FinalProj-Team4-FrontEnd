@@ -13,13 +13,13 @@ export class EditPostComponent implements OnInit {
 
   post: Post = {};
   submitted = false;
-  
+
 
   constructor(private postService: PostService, private route: ActivatedRoute,
     private router: Router) { }
 
-  options = ['ENABLE', 'DISABLE']
-  
+  options = ['ENABLED', 'DISABLED']
+
 
 
   ngOnInit(): void {
@@ -31,7 +31,11 @@ export class EditPostComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.post = data;
-          this.post.expires_on = format((new Date(data.expires_on || "")),'yyyy-MM-dd')
+          this.post._id = data._id;
+          this.post.price = data.price;
+          this.post.title = data.title;
+          this.post.expires_on = format((new Date(data.expires_on || "")),'yyyy-MM-dd');
+          this.post.status = Date.parse(this.post.expires_on) < Date.now() ? 'DISABLED' : 'ENABLED';
           console.log(data);
         },
         error: (e) => console.error(e)
@@ -43,8 +47,8 @@ export class EditPostComponent implements OnInit {
       _id: this.post._id,
       title: this.post.title,
       price: this.post.price,
-      status: this.post.status,
-      expires_on: this.post.expires_on,
+      //status: this.post.status,
+      expires_on: this.post.status === 'ENABLED' ? this.post.expires_on: format((new Date(Date.now())), 'yyyy-MM-dd')
     };
 
     this.postService.update(this.post._id, data)

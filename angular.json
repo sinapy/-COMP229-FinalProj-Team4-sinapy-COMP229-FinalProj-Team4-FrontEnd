@@ -32,7 +32,8 @@
               "./node_modules/et-line/style.css",
               "./node_modules/@fortawesome/fontawesome-free/css/fontawesome.css",
               "./node_modules/owl.carousel/src/scss/owl.theme.green.scss",
-              "./node_modules/select2/dist/css/select2.css"
+              "./node_modules/select2/dist/css/select2.css",
+              "./src/styles.css"
             ],
             "scripts": [
               "./node_modules/jquery/dist/jquery.slim.js",

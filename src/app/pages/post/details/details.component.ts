@@ -24,7 +24,11 @@ export class DetailsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.post = data;
-          this.post.expires_on = format((new Date(data.expires_on || "")),'yyyy-MM-dd')
+          this.post._id = data._id;
+          this.post.price = data.price;
+          this.post.title = data.title;
+          this.post.expires_on = format((new Date(data.expires_on || "")),'yyyy-MM-dd');
+          this.post.status = Date.parse(this.post.expires_on) < Date.now() ? 'DISABLED' : 'ENABLED';
           console.log(data);
         },
         error: (e) => console.error(e)
