@@ -1,9 +1,15 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Observable} from "rxjs";
+import {environment} from "../../environments/environment";
 
-const AUTH_API = 'https://wldg-backend.nn.r.appspot.com/api/auth/';
+let AUTH_API = "";
 
+if (environment.production) {
+  AUTH_API = 'https://wldg-backend.nn.r.appspot.com/api/auth/';
+}else {
+  AUTH_API = 'http://localhost:3000/api/auth/';
+}
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
 };

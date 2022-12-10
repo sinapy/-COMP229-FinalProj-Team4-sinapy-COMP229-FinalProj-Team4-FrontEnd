@@ -13,7 +13,7 @@ export class CreatePostComponent implements OnInit {
     _id: "",
     title: '',
     price: 0,
-    status: '',
+    //status: '',
     expires_on: ''
   };
   submitted = false;
@@ -21,7 +21,7 @@ export class CreatePostComponent implements OnInit {
   constructor(private postService: PostService) { }
 
   options = ['ENABLE', 'DISABLE']
-  
+
 
 
   ngOnInit(): void {
@@ -31,7 +31,7 @@ export class CreatePostComponent implements OnInit {
     const data = {
       title: this.post.title,
       price: this.post.price,
-      status: this.post.status,
+      //status: this.post.status,
       expires_on: this.post.expires_on,
     };
 
@@ -50,7 +50,7 @@ export class CreatePostComponent implements OnInit {
     this.post = {
       title: '',
       price: 0,
-      status: '',
+      //status: '',
       expires_on: ''
     };
   }

@@ -10,7 +10,7 @@ let baseUrl = "";
 if (environment.production) {
   baseUrl = 'https://wldg-backend.nn.r.appspot.com/api/posts';
 }else {
-  baseUrl = 'http://localhost:8080/api/posts';
+  baseUrl = 'http://localhost:3000/api/posts';
 }
 
 
