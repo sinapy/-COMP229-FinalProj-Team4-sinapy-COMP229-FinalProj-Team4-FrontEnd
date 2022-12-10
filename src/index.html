@@ -1,56 +1,217 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>COMP229FinaProjectTeam4FrontEnd</title>
-  <base href="/">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-  <!-- =-=-=-=-=-=-= Template CSS Style =-=-=-=-=-=-= -->
-  <link rel="stylesheet" href="styles.css">
-  <!-- =-=-=-=-=-=-= Google Fonts =-=-=-=-=-=-= -->
-</head>
-<body>
-  <app-root></app-root>
-  <script src="/node_modules/jquery/dist/jquery.min.js"></script>
-   Bootstrap Core Css
-  <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-  <!-- Jquery Smooth Scroll  -->
-  <script src="assets/js/jquery.smoothscroll.js"></script>
-  <!-- Jquery Easing -->
-  <script type="text/javascript" src="assets/js/easing.js"></script>
-  <!-- Jquery Counter -->
-  <script src="assets/js/jquery.countTo.js"></script>
-  <!-- Jquery Waypoints -->
-  <script src="assets/js/jquery.waypoints.js"></script>
-  <!-- Jquery Appear Plugin -->
-  <script src="assets/js/jquery.appear.min.js"></script>
-  <!-- Carousel Slider  -->
-  <script src="assets/js/carousel.min.js"></script>
-  <!-- Jquery Parallex -->
-  <script src="assets/js/jquery.stellar.min.js"></script>
-  <!--Style Switcher -->
-  <script src="assets/js/bootstrap-dropdownhover.min.js"></script>
-  <!-- Include jQuery Syntax Highlighter -->
-  <script type="text/javascript" src="assets/scripts/shCore.js"></script>
-  <script type="text/javascript" src="assets/scripts/shBrushPhp.js"></script>
-  <!-- Template Core JS -->
-  <script src="/assets/js/custom.js"></script>
-  <!-- FOR THIS PAGE ONLY -->
-  <script src="/node_modules/angular-imagesloaded/dist/angular-imagesloaded.min.js"></script>
-  <script src="assets/js/isotope.min.js"></script>
+  <head>
+    <meta charset="utf-8" />
+    <title>COMP229FinaProjectTeam4FrontEnd</title>
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="node_modules/bootstrap/dist/css/bootstrap.min.css"
+    />
+    <!-- =-=-=-=-=-=-= Template CSS Style =-=-=-=-=-=-= -->
+    <link rel="stylesheet" href="styles.css" />
+    <!-- =-=-=-=-=-=-= Google Fonts =-=-=-=-=-=-= -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  </head>
 
-  <script type="text/javascript">
-    (function($) {
-      "use strict";
-      $('#posts-masonry').imagesLoaded(function() {
-        $('#posts-masonry').isotope({
-          layoutMode: 'masonry',
-          transitionDuration: '0.3s'
+  <body>
+    <!-- <nav
+      class="navbar navbar-expand-lg bg-light"
+      style="background-color: #b2dcfa"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Sell Products</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-brand mb-0 h1">Sell Products</span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="/">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Home and Kitchen</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Electronics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Best Sellers</a>
+            </li>
+          </ul>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Search"
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-success" type="submit">
+              Search
+            </button>
+          </form>
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a data-toggle="dropdown" class="dropdown-toggle" href="#"
+                >Login</a
+              >
+              <ul class="dropdown-menu form-wrapper">
+                <li>
+                  <form
+                    action="/examples/actions/confirmation.php"
+                    method="post"
+                  >
+                    <p class="hint-text">
+                      Sign in with your social media account
+                    </p>
+                    <div class="form-group social-btn clearfix">
+                      <a href="#" class="btn btn-primary pull-left"
+                        ><i class="fa fa-facebook"></i> Facebook</a
+                      >
+                      <a href="#" class="btn btn-info pull-right"
+                        ><i class="fa fa-twitter"></i> Twitter</a
+                      >
+                    </div>
+                    <div class="or-seperator"><b>or</b></div>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Username"
+                        required="required"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        required="required"
+                      />
+                    </div>
+                    <input
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                      value="Login"
+                    />
+                    <div class="form-footer">
+                      <a href="#">Forgot Your password?</a>
+                    </div>
+                  </form>
+                </li>
+              </ul>
+            </li>
+            <li>
+              <a
+                href="#"
+                data-toggle="dropdown"
+                class="btn btn-primary dropdown-toggle get-started-btn mt-1 mb-1"
+                >Sign up</a
+              >
+              <ul class="dropdown-menu form-wrapper">
+                <li>
+                  <form
+                    action="/examples/actions/confirmation.php"
+                    method="post"
+                  >
+                    <p class="hint-text">
+                      Fill in this form to create your account!
+                    </p>
+                    <div class="form-group">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Username"
+                        required="required"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        required="required"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <input
+                        type="password"
+                        class="form-control"
+                        placeholder="Confirm Password"
+                        required="required"
+                      />
+                    </div>
+                    <div class="form-group">
+                      <label class="checkbox-inline"
+                        ><input type="checkbox" required="required" /> I accept
+                        the <a href="#">Terms &amp; Conditions</a></label
+                      >
+                    </div>
+                    <input
+                      type="submit"
+                      class="btn btn-primary btn-block"
+                      value="Sign up"
+                    />
+                  </form>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav> -->
+
+    <!-- End Example Code -->
+    <app-root></app-root>
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+    Bootstrap Core Css
+    <script src="/node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <!-- Jquery Smooth Scroll  -->
+    <script src="assets/js/jquery.smoothscroll.js"></script>
+    <!-- Jquery Easing -->
+    <script type="text/javascript" src="assets/js/easing.js"></script>
+    <!-- Jquery Counter -->
+    <script src="assets/js/jquery.countTo.js"></script>
+    <!-- Jquery Waypoints -->
+    <script src="assets/js/jquery.waypoints.js"></script>
+    <!-- Jquery Appear Plugin -->
+    <script src="assets/js/jquery.appear.min.js"></script>
+    <!-- Carousel Slider  -->
+    <script src="assets/js/carousel.min.js"></script>
+    <!-- Jquery Parallex -->
+    <script src="assets/js/jquery.stellar.min.js"></script>
+    <!--Style Switcher -->
+    <script src="assets/js/bootstrap-dropdownhover.min.js"></script>
+    <!-- Include jQuery Syntax Highlighter -->
+    <script type="text/javascript" src="assets/scripts/shCore.js"></script>
+    <script type="text/javascript" src="assets/scripts/shBrushPhp.js"></script>
+    <!-- Template Core JS -->
+    <script src="/assets/js/custom.js"></script>
+    <!-- FOR THIS PAGE ONLY -->
+    <script src="/node_modules/angular-imagesloaded/dist/angular-imagesloaded.min.js"></script>
+    <script src="assets/js/isotope.min.js"></script>
+
+    <script type="text/javascript">
+      (function ($) {
+        "use strict";
+        $("#posts-masonry").imagesLoaded(function () {
+          $("#posts-masonry").isotope({
+            layoutMode: "masonry",
+            transitionDuration: "0.3s",
+          });
         });
-      });
-    })(jQuery);
-  </script>
-</body>
+      })(jQuery);
+    </script>
+  </body>
 </html>
