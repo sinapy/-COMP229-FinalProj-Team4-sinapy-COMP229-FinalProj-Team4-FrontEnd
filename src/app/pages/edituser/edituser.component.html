@@ -1,0 +1,76 @@
+<app-header></app-header>
+<div class="main-content-area">
+
+    <!-- =-=-=-=-=-=-= Page Breadcrumb =-=-=-=-=-=-= -->
+    <section class="page-title">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-6 col-sm-7 co-xs-12 text-left">
+            <h1>Edit User Info</h1>
+          </div>
+          <!-- end col -->
+          <div class="col-md-6 col-sm-5 co-xs-12 text-right">
+            <div class="bread" style="float:right">
+              <ol class="breadcrumb">
+                <li><a href="#">Home/</a>
+                </li>
+                <li><a href="#">Pages/</a>
+                </li>
+                <li class="active">Edit User</li>
+              </ol>
+            </div>
+            <!-- end bread -->
+          </div>
+          <!-- end col -->
+        </div>
+        <!-- end row -->
+      </div>
+      <!-- end container -->
+    </section>
+
+    <section class="section-padding-80 white" id="edituser">
+
+        <div class="container">
+
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3 col-md-6 col-md-offset-3">
+                    <div class="box-panel">
+                        <form name="editform">
+                            <div class="form-group">
+                                <label for="username">Name</label>
+                                <input
+                                  type="text"
+                                  class="form-control"
+                                  name="username"
+                                  required
+                                  minlength="3"
+                                  maxlength="20"
+                                  placeholder="Kindly Enter Your Name"
+                                />
+                              </div>
+
+                              <!-- <div class="form-group">
+                                <label for="email">Email</label>
+                                <input
+                                  type="email"
+                                  class="form-control"
+                                  name="email"
+                                  required
+                                  email
+                                  placeholder="Kindly Enter Your Email"
+                                  
+                                />
+                              </div> -->
+
+                              <button class="btn btn-primary btn-lg btn-block" type="submit">Edit User</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    
+
+<app-footer></app-footer>
