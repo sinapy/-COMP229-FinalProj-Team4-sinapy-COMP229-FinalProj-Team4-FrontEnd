@@ -21,6 +21,7 @@ import { ViewPostsComponent } from './pages/post/view-posts/view-posts.component
 import {FormsModule} from "@angular/forms";
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DeleteComponent } from './pages/post/delete/delete.component';
+import { EdituserComponent } from './pages/edituser/edituser.component';
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path: 'products/view-posts', component: ViewPostsComponent},
   {path: 'products/delete/:id', component: DeleteComponent},
   {path: 'how-work', component: HowWorkComponent},
+  {path: 'edituser', component: EdituserComponent},
 
   {path: '**', component: NotfoundComponent },  // Wildcard route for a 404 page
 ];
@@ -57,7 +59,9 @@ const routes: Routes = [
     DetailsComponent,
     ViewPostsComponent,
     ProfileComponent,
-    DeleteComponent
+    DeleteComponent,
+    EdituserComponent
+    
   ],
   imports: [
     HttpClientModule,
