@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
+import {HttpClient, HttpErrorResponse} from '@angular/common/http';
+import {Observable, throwError} from 'rxjs';
 import { Post } from '../models/post.model';
 import { environment } from '../../environments/environment';
 
@@ -41,4 +41,5 @@ export class PostService {
   delete(id: any): Observable<any> {
     return this.http.delete(`${baseUrl}/${id}`);
   }
+
 }

@@ -22,7 +22,7 @@
           </li>
           <li><a routerLink="/register"><i class="fa fa-user-plus" aria-hidden="true"></i>Signup</a>
           </li>
-          <li><a routerLink="/edituser"><i class="fa fa-user-plus" aria-hidden="true"></i>Edit User Info</a>
+          <li><a routerLink="/edituser" *ngIf="isLoggedIn"><i class="fa fa-user-plus" aria-hidden="true"></i>Edit User Info</a>
           </li>
 
         </ul>
