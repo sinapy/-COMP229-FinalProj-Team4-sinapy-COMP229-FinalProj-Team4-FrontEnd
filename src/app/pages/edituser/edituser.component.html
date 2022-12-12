@@ -45,7 +45,8 @@
                                   required
                                   minlength="3"
                                   maxlength="20"
-                                  placeholder="Kindly Enter Your Name"
+                                  [(ngModel)]="name"
+                                  [placeholder]="name"
                                 />
                               </div>
 
@@ -58,19 +59,23 @@
                                   required
                                   email
                                   placeholder="Kindly Enter Your Email"
-                                  
+
                                 />
                               </div> -->
 
-                              <button class="btn btn-primary btn-lg btn-block" type="submit">Edit User</button>
+                              <button class="btn btn-primary btn-lg btn-block" type="submit" (click)="onEditUser()">Edit User</button>
                         </form>
                     </div>
                 </div>
             </div>
 
         </div>
+      <div *ngIf="submitted">
+        <h4>Name was updated successfully! Updates will be shown the next time you sign in to the website :)</h4>
+        <button class="btn btn-success" [routerLink]="['/products/view-posts']">View Posts</button>
+      </div>
     </section>
 
-    
+
 
 <app-footer></app-footer>

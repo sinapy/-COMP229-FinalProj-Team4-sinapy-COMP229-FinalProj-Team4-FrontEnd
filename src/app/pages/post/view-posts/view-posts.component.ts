@@ -18,6 +18,7 @@ export class ViewPostsComponent implements OnInit {
   isLoggedIn : boolean = false;
 
   user : any;
+  errorMessage: string = "";
 
 
   constructor(private postService: PostService, private tokenStorageService: TokenStorageService) { }

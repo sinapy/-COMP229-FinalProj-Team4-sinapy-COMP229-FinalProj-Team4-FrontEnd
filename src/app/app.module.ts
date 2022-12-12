@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
+import {AuthGuard} from "./_guards/auth.guard";
 
 import { authInterceptorProviders } from "./_helper/auth.interceptor";
 
@@ -22,6 +23,7 @@ import {FormsModule} from "@angular/forms";
 import { ProfileComponent } from './pages/profile/profile.component';
 import { DeleteComponent } from './pages/post/delete/delete.component';
 import { EdituserComponent } from './pages/edituser/edituser.component';
+import {HttpErrorInterceptor} from "./_helper/error.interceptor";
 
 export function tokenGetter() {
   return localStorage.getItem('access_token');
@@ -38,7 +40,7 @@ const routes: Routes = [
   {path: 'products/view-posts', component: ViewPostsComponent},
   {path: 'products/delete/:id', component: DeleteComponent},
   {path: 'how-work', component: HowWorkComponent},
-  {path: 'edituser', component: EdituserComponent},
+  {path: 'edituser', component: EdituserComponent, canActivate: [AuthGuard]},
 
   {path: '**', component: NotfoundComponent },  // Wildcard route for a 404 page
 ];
@@ -61,7 +63,7 @@ const routes: Routes = [
     ProfileComponent,
     DeleteComponent,
     EdituserComponent
-    
+
   ],
   imports: [
     HttpClientModule,
@@ -71,7 +73,12 @@ const routes: Routes = [
 
   ],
   exports: [RouterModule],
-  providers: [authInterceptorProviders],
+  providers: [authInterceptorProviders,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpErrorInterceptor,
+      multi: true,
+    }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
