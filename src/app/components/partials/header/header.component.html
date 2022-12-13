@@ -28,7 +28,7 @@
         </ul>
         <ul class="top-nav nav-right" *ngIf="isLoggedIn">
           <li class="nav-item">
-            <a routerLink="/profile" class="nav-link" href="/profile">{{username}}</a>
+            <a routerLink="/edituser" class="nav-link">{{username}}</a>
           </li>
           <li class="nav-item">
             <a href class="nav-link" (click)="logout()">LogOut</a>
@@ -54,6 +54,7 @@
       </a>
       <!-- header end -->
     </div>
+    <a routerLink="products/create-post" class="btn btn-success btn-lg float-right">+ New item</a>
     <!-- navigation menu -->
     <div class="navbar-collapse collapse">
       <!-- right bar -->

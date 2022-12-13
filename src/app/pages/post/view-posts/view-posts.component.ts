@@ -20,21 +20,27 @@ export class ViewPostsComponent implements OnInit {
   user : any;
   errorMessage: string = "";
 
+  isAuthorized : boolean[] = [];
+
 
   constructor(private postService: PostService, private tokenStorageService: TokenStorageService) { }
 
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.retrievePosts();
     this.isLoggedIn = !!this.tokenStorageService.getToken();
 
-    if (!this.isLoggedIn){
+    if (!this.isLoggedIn) {
       //TODO redirect to login
     }
 
-    if (this.isLoggedIn){
+    if (this.isLoggedIn) {
       this.user = this.tokenStorageService.getUser();
     }
+
+    await new Promise(f => setTimeout(f, 1000))
+    this.refreshIsAuthenticated();
+    console.log(this.isAuthorized)
   }
 
   retrievePosts(): void {
@@ -74,8 +80,20 @@ export class ViewPostsComponent implements OnInit {
       .subscribe({
         next: (data) => {
           this.refreshList();
+          this.refreshIsAuthenticated()
     }
       })
 
+  }
+
+  refreshIsAuthenticated(){
+    // @ts-ignore
+    for (let post of this.posts) {
+      let thisAuth = false;
+      if (this.isLoggedIn) {
+        thisAuth = this.user.id === post.owner;
+      }
+      this.isAuthorized.push(thisAuth)
+    }
   }
 }

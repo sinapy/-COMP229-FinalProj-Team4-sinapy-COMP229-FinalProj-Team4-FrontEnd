@@ -34,11 +34,10 @@ const routes: Routes = [
   {path: 'register', component: RegisterComponent},
   {path: 'login', component: LoginComponent},
   {path: 'forgot-password', component: ForgotPasswordComponent},
-  {path: 'products/create-post', component: CreatePostComponent},
-  {path: 'products/edit-post/:id', component: EditPostComponent},
+  {path: 'products/create-post', component: CreatePostComponent, canActivate: [AuthGuard]},
+  {path: 'products/edit-post/:id', component: EditPostComponent, canActivate: [AuthGuard]},
   {path: 'products/details/:id', component: DetailsComponent},
   {path: 'products/view-posts', component: ViewPostsComponent},
-  {path: 'products/delete/:id', component: DeleteComponent},
   {path: 'how-work', component: HowWorkComponent},
   {path: 'edituser', component: EdituserComponent, canActivate: [AuthGuard]},
 
