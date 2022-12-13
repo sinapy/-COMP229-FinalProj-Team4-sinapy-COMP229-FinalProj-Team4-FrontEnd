@@ -63,14 +63,14 @@
               <!-- ------------------------- -->
               <!-- Fix the EDIT button below -->
               <!-- ------------------------- -->
-              <a [routerLink]="['/products/edit-post/', post._id]" class="btn btn-primary btn-sm">
+              <a [routerLink]="['/products/edit-post/', post._id]" *ngIf="isAuthorized[i]" class="btn btn-primary btn-sm">
                 <i class="fa fa-pencil"></i></a>
             </td>
             <td class="text-center">
               <!-- --------------------------- -->
               <!-- Fix the DELETE button below -->
               <!-- --------------------------- -->
-              <a (click)="deletePost(post._id)" class="btn btn-danger btn-sm" [title]="isLoggedIn ? 'Delete post' : 'not logged in users are not allowed to use this feature'">
+              <a (click)="deletePost(post._id)" class="btn btn-danger btn-sm" *ngIf="isAuthorized[i]" [title]="isLoggedIn ? 'Delete post' : 'not logged in users are not allowed to use this feature'">
                 <i class="fa fa-trash"></i></a>
 
             </td>

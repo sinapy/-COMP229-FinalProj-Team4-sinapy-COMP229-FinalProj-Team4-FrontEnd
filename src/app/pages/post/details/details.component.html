@@ -76,31 +76,76 @@
       <div class="card m-b-20">
         <div class="card-header">
           <h3 class="card-title">Question</h3>
-          
+
         </div>
         <div class="card-body"  >
           <form  method="POST"  action="#" ref='uploadForm' id='uploadForm' encType="multipart/form-data">
             <div class="form-group">
-              <label class="form-label" for="exampleInputEmail1">Title</label>
-              <input type="text" name="Question_title" class="form-control" id="exampleInputname"placeholder="Question_title" required>
-             
+              <label class="form-label" for="exampleInputEmail1">Your Name</label>
+              <input type="text" name="Question_title" class="form-control" id="exampleInputname" [(ngModel)]="newQuestion.name" placeholder="John" required>
+
             </div>
             <div class="form-group">
               <label class="form-label" for="exampleInputEmail1" >Question:</label>
-              <textarea name="Question_detail"  class="form-control"  rows="5" cols="58" placeholder="Question" required></textarea>
-             
+              <textarea name="Question_detail"  class="form-control"  rows="5" cols="58" [(ngModel)]="newQuestion.content" placeholder="Question" required></textarea>
+
             </div>
-            
-            
+
+
             <div class="form-group mb-0">
               <div class="checkbox checkbox-secondary">
-                <button type="submit" class="btn btn-primary ">Submit</button>
+                <button type="submit" class="btn btn-primary " (click)="onQuestionSubmit()">Submit</button>
               </div>
             </div>
           </form>
         </div>
       </div>
     <!-- </div> -->
+  </section>
+  <div *ngIf="submitted">
+    Question was successfully submitted
+  </div>
+
+
+  <section>
+    <div class="card m-b-20">
+      <div class="card-header">
+        <h3 class="card-title">Questions</h3>
+      </div>
+      <div class="card-body">
+        <div *ngFor="let q of post.questions ; let i = index">
+          <div class="card m-b-20">
+            <div class="card-header">
+              <h5 class="card-title">{{q.name}}</h5>
+            </div>
+            <div>{{q.content}}</div>
+            <div *ngIf="q.answer != null">
+              <div>Answer by owner: </div>
+              <div>------{{q.answer.content}}</div>
+            </div>
+            <form *ngIf="isAuthorized && q.answer == null"  method="POST"  action="#" ref='uploadForm' id='uploadForm' encType="multipart/form-data">
+              <div class="form-group">
+                <label class="form-label" for="exampleInputEmail1" >Answer:</label>
+                <textarea name="answer"  class="form-control"  rows="5" cols="58" [(ngModel)]="answers[i].content" placeholder="Answer" required></textarea>
+
+              </div>
+
+
+              <div class="form-group mb-0">
+                <div class="checkbox checkbox-secondary">
+                  <button type="submit" class="btn btn-primary " (click)="onAnswerSubmit(i)">Submit</button>
+                </div>
+              </div>
+            </form>
+            <div *ngIf="questionList[i] == 1">
+              Answer was submitted
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </div>
   </section>
 
   <!-- =-=-=-=-=-=-= Download App =-=-=-=-=-=-= -->
